@@ -1,0 +1,26 @@
+.app-container{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    header{
+        background-color: green;
+        margin-bottom: 50px;
+    }
+
+    footer{
+        background-color: #252525;
+        color: white;
+    }
+
+    header, footer{
+        height: 70px;
+        display: flex;
+        align-items: center;
+        width: 100%;
+    }
+
+    main{
+        flex-grow: 1;
+    }
+}
