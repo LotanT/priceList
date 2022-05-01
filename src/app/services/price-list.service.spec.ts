@@ -13,4 +13,11 @@ describe('PriceListService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('testing getById', ()=>{
+    expect(service.getById('&')).toBeFalsy()
+  })
+  it('testing getById', ()=>{
+    expect(service.getById('11')?.priceListName).toBe('books')
+  })
 });
