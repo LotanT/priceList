@@ -1,1 +1,20 @@
-<p>details-edit works!</p>
+<section *ngIf="priceList" class="pricelist-edit">
+    <button class="exit" (click)="goBack()">X</button>
+    <form (ngSubmit)="onSave()">
+        <h3>{{priceList.priceListID}}</h3>
+        <div class="field">
+            <label  for="priceListName">Name: </label>
+            <br/>
+            <input [(ngModel)]="priceListName" type="text" name="priceListName">
+            <div class="err-msg" *ngIf="errNameMsg">{{errNameMsg}}</div>
+        </div>
+        <div class="field flex-grow">
+            <label  for="extErpPriceListID">Erp ID: </label>
+            <br/>
+            <input [(ngModel)]="extErpPriceListID" type="number" name="extErpPriceListID">
+            <div class="err-msg" *ngIf="errErpMsg">{{errErpMsg}}</div>
+        </div>
+
+        <button>Save</button>
+    </form>
+</section>
