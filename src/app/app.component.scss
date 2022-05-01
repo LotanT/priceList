@@ -4,11 +4,11 @@
     flex-direction: column;
 
     header{
-        background-color: green;
+        background-color: #069A8E;
     }
-
+    
     footer{
-        background-color: #252525;
+        background-color: #005555;
         color: white;
     }
 
@@ -21,5 +21,6 @@
 
     main{
         flex-grow: 1;
+        background-color: #A1E3D8;
     }
 }
