@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { PriceListFilter } from '../models/price-list-filter';
 import { PriceList } from '../models/price.model';
 
 @Injectable({
@@ -21,8 +22,20 @@ export class PriceListService {
   private _priceList$ = new BehaviorSubject<PriceList[]>([]);
   public priceList$ = this._priceList$.asObservable();
 
+  private _filterBy$ = new BehaviorSubject<PriceListFilter>({term: ''})
+  public filterBy$ = this._filterBy$.asObservable()
+
   public GetPriceLists (){
-    this._priceList$.next(this._priceListDB)
+    const filter = this._filterBy$.getValue()
+    const priceList = this._priceListDB.filter(priceList=>{
+      return priceList.priceListName.toLocaleLowerCase().includes(filter.term.toLocaleLowerCase())
+    })
+    this._priceList$.next(priceList)
+  }
+
+  public setFilterBy(filterBy: PriceListFilter){
+    this._filterBy$.next(filterBy)
+    this.GetPriceLists()
   }
 
 }
