@@ -16,7 +16,6 @@ export class PriceListService {
     {priceListID: 14, priceListName: 'candys', extErpPriceListID: null},
     {priceListID: 15, priceListName: 'cards', extErpPriceListID: null},
     {priceListID: 16, priceListName: 'phones', extErpPriceListID: null},
-    {priceListID: 17, priceListName: 'shoes', extErpPriceListID: null},
   ]
 
   private _priceList$ = new BehaviorSubject<PriceList[]>([]);
